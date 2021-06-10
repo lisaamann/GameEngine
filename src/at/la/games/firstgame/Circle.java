@@ -25,7 +25,9 @@ public class Circle implements Actor{
         this.y += (float) delta/this.speed;
         if (this.y>600){
             this.y = 0;
+
         }
+        this.diameter ++;
     }
 
     public void render(Graphics graphics) {

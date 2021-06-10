@@ -2,19 +2,23 @@ package at.la.games.firstgame;
 
 import org.newdawn.slick.Graphics;
 
-public class Elipse implements Actor {
-    private int x, y;
-    private int speed;
+import java.util.Random;
 
-    public Elipse(int x, int y) {
-        this.x = x;
-        this.y = y;
-        this.speed = 5;
+public class Elipse implements Actor {
+    private float x;
+    private float y;
+    private float speed;
+
+    public Elipse() {
+        Random random = new Random();
+        this.x = random.nextInt(800);
+        this.y = random.nextInt(600);
+        this.speed = random.nextInt(40)+10;
     }
 
     @Override
     public void render(Graphics graphics) {
-        graphics.drawOval(this.x, this.y, 50, 10);
+        graphics.drawOval(this.x, this.y, 100, 25);
     }
 
     @Override

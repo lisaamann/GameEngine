@@ -17,18 +17,18 @@ public class RectanglesMoreAndMoreAndMore extends BasicGame {
     public void init(GameContainer gameContainer) throws SlickException {
         this.actors = new ArrayList<>();
         Random random = new Random();
-        for (int i = 0; i < 100; i++) {
-            Rectangles rectangles = new Rectangles(random.nextFloat(), random.nextFloat(), random.nextInt(50));
+        for (int i = 0; i < 10; i++) {
+            Rectangles rectangles = new Rectangles(random.nextFloat(), random.nextFloat(), random.nextInt(50), Rectangles.DIRECTION.RIGHT);
             actors.add(rectangles);
         }
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             Circle circle1 = new Circle();
             this.actors.add(circle1);
         }
 
-        for (int i = 0; i < 5; i++) {
-            Elipse elipse = new Elipse(800, 600);
+        for (int i = 0; i < 10; i++) {
+            Elipse elipse = new Elipse();
             this.actors.add(elipse);
         }
     }

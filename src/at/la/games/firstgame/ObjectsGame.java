@@ -12,8 +12,8 @@ public class ObjectsGame extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.rectangles = new Rectangles(200, 200, 5.0f);
-        this.rectangles2 = new Rectangles(50, 50, 5.0f);
+        this.rectangles = new Rectangles(200f, 200f, 5.0f, Rectangles.DIRECTION.LEFT);
+        this.rectangles2 = new Rectangles(50.0f, 50.0f, 5.0f, Rectangles.DIRECTION.LEFT);
     }
 
     @Override
