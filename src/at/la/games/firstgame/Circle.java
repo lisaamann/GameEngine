@@ -2,7 +2,9 @@ package at.la.games.firstgame;
 
 import org.newdawn.slick.*;
 
-public class Circle {
+import java.util.Random;
+
+public class Circle implements Actor{
     private enum DIRECTION {UP, DOWN};
     private float x;
     private float y;
@@ -10,31 +12,24 @@ public class Circle {
     private int diameter;
     private DIRECTION direction = DIRECTION.UP;
 
-    public Circle(float x, float y, float speed, int diameter) {
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
-        this.diameter = diameter;
+    public Circle() {
+        Random random = new Random();
+        this.x = random.nextInt(800);
+        this.y = random.nextInt(600);
+        this.speed = random.nextInt(40)+10;
+        this.diameter = random.nextInt(20)+20;
     }
 
 
-    public void update(int delta) throws SlickException {
-        if (direction == DIRECTION.UP){
-            this.y -= (float) delta / this.speed;
-            if (y<50){
-                this.direction = DIRECTION.DOWN;
-            }
-        }
-        if (direction == DIRECTION.DOWN){
-            this.y += (float) delta / this.speed;
-            if (y>500){
-                this.direction = DIRECTION.UP;
-            }
+    public void update(int delta)  {
+        this.y += (float) delta/this.speed;
+        if (this.y>600){
+            this.y = 0;
         }
     }
 
-    public void render(Graphics graphics) throws SlickException {
-        graphics.drawOval(this.x,this.y, 50, 50);
+    public void render(Graphics graphics) {
+        graphics.drawOval(this.x,this.y, this.diameter, this.diameter);
     }
 
 

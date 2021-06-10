@@ -3,7 +3,7 @@ package at.la.games.firstgame;
 import org.newdawn.slick.*;
 import org.newdawn.slick.tests.AnimationTest;
 
-public class Rectangles {
+public class Rectangles implements Actor{
     private enum DIRECTION {RIGHT, LEFT, UP, DOWN};
     private float x;
     private float y;
@@ -18,7 +18,7 @@ public class Rectangles {
     }
 
 
-    public void update(int delta) throws SlickException {
+    public void update(int delta)  {
         this.x += (float) delta/this.speed;
         if (this.x>800){
             this.x = 0;
@@ -26,7 +26,7 @@ public class Rectangles {
     }
 
 
-    public void render(Graphics graphics) throws SlickException {
+    public void render(Graphics graphics)  {
         graphics.drawRect(this.x, this.y, 70, 70);
     }
 

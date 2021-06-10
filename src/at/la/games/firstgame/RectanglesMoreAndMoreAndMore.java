@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 public class RectanglesMoreAndMoreAndMore extends BasicGame {
-    private ArrayList<Rectangles> rectangles1;
+    private ArrayList<Actor> actors;
 
     private RectanglesMoreAndMoreAndMore(String title) {
         super(title);
@@ -15,26 +15,37 @@ public class RectanglesMoreAndMoreAndMore extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        this.rectangles1 = new ArrayList<>();
+        this.actors = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 100; i++) {
             Rectangles rectangles = new Rectangles(random.nextFloat(), random.nextFloat(), random.nextInt(50));
-            rectangles1.add(rectangles);
+            actors.add(rectangles);
+        }
+
+        for (int i = 0; i < 50; i++) {
+            Circle circle1 = new Circle();
+            this.actors.add(circle1);
+        }
+
+        for (int i = 0; i < 5; i++) {
+            Elipse elipse = new Elipse(800, 600);
+            this.actors.add(elipse);
         }
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        for (Rectangles rectangle:this.rectangles1) {
-            rectangle.update(delta);
+        for (Actor actor:this.actors) {
+            actor.update(delta);
         }
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        for (Rectangles rectangle:this.rectangles1) {
-            rectangle.render(graphics);
+        for (Actor actor:this.actors) {
+            actor.render(graphics);
         }
+
     }
 
     //region MAIN
