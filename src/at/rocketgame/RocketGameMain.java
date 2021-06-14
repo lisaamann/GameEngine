@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RocketGameMain extends BasicGame {
-    private RocketObject raketchen;
+    private RocketObject rocketObject;
     private ArrayList<Actor> enemys;
 
     public RocketGameMain(String title) {
@@ -16,18 +16,18 @@ public class RocketGameMain extends BasicGame {
 
     @Override
     public void init(GameContainer gameContainer) throws SlickException {
-        //RocketObject rocketObject = new RocketObject();
         this.enemys = new ArrayList<>();
         Random random = new Random();
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy();
             this.enemys.add(enemy);
         }
+        RocketObject rocketObject = new RocketObject();
+        this.enemys.add(rocketObject);
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        //raketchen.update(gameContainer, delta);
         for (Actor actor:this.enemys) {
             actor.update(gameContainer, delta);
         }
@@ -35,10 +35,10 @@ public class RocketGameMain extends BasicGame {
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
-        //raketchen.render(graphics);
         for (Actor actor:this.enemys) {
             actor.render(graphics);
         }
+
     }
 
 
