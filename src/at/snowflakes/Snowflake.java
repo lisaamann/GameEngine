@@ -23,7 +23,7 @@ public class Snowflake implements Actor {
         this.speed = random.nextInt(40) +10;
         this.diameter = 20;
         this.size = size;
-        Image temp = new Image("testdata/schneeflocke-auf-transparentem-hintergrund-r30j72.jpg");
+        Image temp = new Image("testdata/schneeflocke.png");
         this.snowflakeImage = temp.getScaledCopy(20, 20);
     }
 
@@ -36,17 +36,23 @@ public class Snowflake implements Actor {
 
     public void render(Graphics graphics) {
         if (this.size.equals(SIZE.SMALL)){
-            graphics.drawOval(this.x,this.y, 10, 10);
+            //graphics.drawOval(this.x,this.y, 10, 10);
+            snowflakeImage.draw(this.x,this.y);
+            this.snowflakeImage.getScaledCopy(10, 10);
             this.speed=10.0f;
         }
         if (this.size.equals(SIZE.MEDIUM)){
-            graphics.drawOval(this.x,this.y, 20, 20);
+            //graphics.drawOval(this.x,this.y, 20, 20);
+            snowflakeImage.draw(this.x,this.y);
+            this.snowflakeImage.getScaledCopy(20, 20);
             this.speed=5.0f;
         }
         if (this.size.equals(SIZE.LARGE)){
-            graphics.drawOval(this.x,this.y, 30, 30);
+            //graphics.drawOval(this.x,this.y, 30, 30);
+            snowflakeImage.draw(this.x,this.y);
+            this.snowflakeImage.getScaledCopy(30, 30);
             this.speed=2.5f;
         }
-        snowflakeImage.draw(this.x,this.y);
+        //snowflakeImage.draw(this.x,this.y);
     }
 }
