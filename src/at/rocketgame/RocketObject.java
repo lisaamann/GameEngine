@@ -2,10 +2,7 @@ package at.rocketgame;
 
 import at.la.games.firstgame.Actor;
 import at.snowflakes.Snowflake;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 
 public class RocketObject implements Actor {
     private Image rocket;
@@ -28,7 +25,13 @@ public class RocketObject implements Actor {
     }
 
     public void update(GameContainer gameContainer, int delta) {
-        this.x++;
+        if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)){
+            this.x++;
+        }
+        if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)){
+            this.x--;
+        }
+
     }
 
 

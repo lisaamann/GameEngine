@@ -18,8 +18,8 @@ public class ObjectsGame extends BasicGame {
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
-        this.rectangles.update(delta);
-        this.rectangles2.update(delta);
+        this.rectangles.update(gameContainer, delta);
+        this.rectangles2.update(gameContainer, delta);
     }
 
     @Override
