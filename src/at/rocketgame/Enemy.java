@@ -1,9 +1,12 @@
 package at.rocketgame;
 
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Circle;
+import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
 
@@ -12,6 +15,7 @@ public class Enemy implements Actor {
     private float y;
     private float speed;
     private int diameterEnemy;
+    private Shape collisionShape;
 
     public Enemy() throws SlickException {
         Random random = new Random();
@@ -19,11 +23,13 @@ public class Enemy implements Actor {
         this.y = random.nextInt(600);
         this.speed = random.nextInt(40) + 10;
         this.diameterEnemy = 20;
+        this.collisionShape = new Circle(this.x,this.y,this.diameterEnemy/2);
     }
 
 
     public void render(Graphics graphics) {
         graphics.drawOval(this.x, this.y, 20, 20);
+        graphics.draw(this.collisionShape);
         this.speed = 10.0f;
     }
 
@@ -33,5 +39,7 @@ public class Enemy implements Actor {
         if (this.y > 600) {
             this.y = 0;
         }
+        this.collisionShape.setCenterX(this.x+10);
+        this.collisionShape.setCenterY(this.y+10);
     }
 }
