@@ -1,20 +1,18 @@
 package at.rocketgame;
 
-import at.la.games.firstgame.Actor;
-import at.snowflakes.Snowflake;
 import org.newdawn.slick.*;
 
-public class RocketObject implements Actor{
+public class RocketObject implements Actor {
     private float x;
     private float y;
     private Image rocket;
+    private RocketObject rocketObject;
 
     public RocketObject() throws SlickException {
         this.x = 700;
         this.y = 500;
-        //this.rocket = new Image("testdata/rocket.png");
         Image temp = new Image("testdata/rocket.png");
-        this.rocket = temp.getScaledCopy(50, 50);
+        this.rocket = temp.getScaledCopy(70, 70);
     }
 
 
@@ -23,20 +21,29 @@ public class RocketObject implements Actor{
     }
 
     public void update(GameContainer gameContainer, int delta) {
-        if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)){
+        if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
             this.x++;
         }
-        if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)){
+        if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)) {
             this.x--;
         }
-        if (gameContainer.getInput().isKeyDown(Input.KEY_UP)){
+        if (gameContainer.getInput().isKeyDown(Input.KEY_UP)) {
             this.y--;
         }
-        if (gameContainer.getInput().isKeyDown(Input.KEY_DOWN)){
+        if (gameContainer.getInput().isKeyDown(Input.KEY_DOWN)) {
             this.y++;
         }
 
     }
 
+
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
 
 }

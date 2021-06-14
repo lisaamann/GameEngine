@@ -1,6 +1,6 @@
 package at.rocketgame;
 
-import at.la.games.firstgame.Actor;
+
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -9,6 +9,7 @@ import java.util.Random;
 public class RocketGameMain extends BasicGame {
     private RocketObject rocketObject;
     private ArrayList<Actor> enemys;
+
 
     public RocketGameMain(String title) {
         super(title);
@@ -22,12 +23,14 @@ public class RocketGameMain extends BasicGame {
             Enemy enemy = new Enemy();
             this.enemys.add(enemy);
         }
-        RocketObject rocketObject = new RocketObject();
+        this.rocketObject = new RocketObject();
         this.enemys.add(rocketObject);
+
     }
 
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
+
         for (Actor actor:this.enemys) {
             actor.update(gameContainer, delta);
         }
@@ -35,13 +38,22 @@ public class RocketGameMain extends BasicGame {
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
+
         for (Actor actor:this.enemys) {
             actor.render(graphics);
         }
 
     }
 
+    @Override
+    public void keyPressed(int key, char c) {
 
+
+        if (key == Input.KEY_SPACE) {
+            CanonBall canonBall = new CanonBall(this.rocketObject.getX(),this.rocketObject.getY());
+            this.enemys.add(canonBall);
+        }
+    }
 
     //region MAIN
     public static void main(String[] argv) {

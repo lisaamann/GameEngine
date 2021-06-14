@@ -1,6 +1,6 @@
 package at.rocketgame;
 
-import at.la.games.firstgame.Actor;
+
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;

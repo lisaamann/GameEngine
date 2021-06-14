@@ -1,5 +1,6 @@
 package at.la.games.firstgame;
 
+import at.rocketgame.RocketObject;
 import org.newdawn.slick.*;
 
 public class ObjectsGame extends BasicGame {
@@ -27,6 +28,7 @@ public class ObjectsGame extends BasicGame {
         this.rectangles.render(graphics);
         this.rectangles2.render(graphics);
     }
+
 
 
     //region MAIN
