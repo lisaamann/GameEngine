@@ -1,6 +1,7 @@
 package at.snowflakes;
 
 import at.la.games.firstgame.Actor;
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -9,10 +10,7 @@ import java.util.Random;
 
 public class Snowflake implements Actor {
     private Image snowflakeImage;
-
-    public enum SIZE {SMALL, MEDIUM, LARGE}
-
-    ;
+    public enum SIZE {SMALL, MEDIUM, LARGE};
     private float x;
     private float y;
     private float speed;
@@ -41,7 +39,7 @@ public class Snowflake implements Actor {
         else return 0;
     }
 
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
         this.y += (float) delta / this.speed;
         if (this.y > 600) {
             this.y = 0;

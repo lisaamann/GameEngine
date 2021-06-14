@@ -22,7 +22,7 @@ public class Rectangles implements Actor {
     }
 
 
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
         if (direction == DIRECTION.LEFT){
             this.x += (float) delta / this.speed;
             if (this.x > 800) {

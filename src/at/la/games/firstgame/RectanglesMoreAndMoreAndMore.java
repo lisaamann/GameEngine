@@ -36,7 +36,7 @@ public class RectanglesMoreAndMoreAndMore extends BasicGame {
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor:this.actors) {
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
     }
 

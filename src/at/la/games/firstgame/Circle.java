@@ -21,7 +21,7 @@ public class Circle implements Actor{
     }
 
 
-    public void update(int delta)  {
+    public void update(GameContainer gameContainer, int delta)  {
         this.y += (float) delta/this.speed;
         if (this.y>600){
             this.y = 0;

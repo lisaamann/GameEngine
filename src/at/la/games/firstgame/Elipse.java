@@ -1,5 +1,6 @@
 package at.la.games.firstgame;
 
+import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 import java.util.Random;
@@ -22,7 +23,7 @@ public class Elipse implements Actor {
     }
 
     @Override
-    public void update(int delta) {
+    public void update(GameContainer gameContainer, int delta) {
         this.x += (float) delta / this.speed;
         this.y += (float) delta / this.speed;
         if (this.x > 600) {

@@ -30,7 +30,7 @@ public class SnowflakeCircus extends BasicGame {
     @Override
     public void update(GameContainer gameContainer, int delta) throws SlickException {
         for (Actor actor:this.snowflakes) {
-            actor.update(delta);
+            actor.update(gameContainer, delta);
         }
     }
 

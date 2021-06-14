@@ -28,6 +28,7 @@ public class ObjectsGame extends BasicGame {
         this.rectangles2.render(graphics);
     }
 
+
     //region MAIN
     public static void main(String[] argv) {
         try {
