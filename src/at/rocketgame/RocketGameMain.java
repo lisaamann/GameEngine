@@ -22,6 +22,7 @@ public class RocketGameMain extends BasicGame {
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy();
             this.enemys.add(enemy);
+            this.rocketObject.addCollisionPartner(enemy);
         }
         this.rocketObject = new RocketObject();
         this.enemys.add(rocketObject);

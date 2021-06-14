@@ -10,7 +10,7 @@ import org.newdawn.slick.geom.Shape;
 
 import java.util.Random;
 
-public class Enemy implements Actor {
+public class Enemy implements Actor, CollisionShape {
     private float x;
     private float y;
     private float speed;
@@ -41,5 +41,11 @@ public class Enemy implements Actor {
         }
         this.collisionShape.setCenterX(this.x+10);
         this.collisionShape.setCenterY(this.y+10);
+    }
+
+
+    @Override
+    public Shape getShape() {
+        return null;
     }
 }

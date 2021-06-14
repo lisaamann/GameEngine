@@ -4,19 +4,24 @@ import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Shape;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RocketObject implements Actor {
     private float x;
     private float y;
     private Image rocket;
     private RocketObject rocketObject;
     private Shape collisionShape;
+    private List<CollisionShape> collisionShapes;
 
     public RocketObject() throws SlickException {
         this.x = 700;
         this.y = 500;
         Image temp = new Image("testdata/rocket.png");
         this.rocket = temp.getScaledCopy(70, 70);
-        this.collisionShape = new Rectangle(this.x, this.y, 70, 70);
+        this.collisionShape = new Rectangle(this.x,this.y,70, 70);
+        this.collisionShapes = new ArrayList<CollisionShape>();
     }
 
 
@@ -26,6 +31,12 @@ public class RocketObject implements Actor {
     }
 
     public void update(GameContainer gameContainer, int delta) {
+        for (CollisionShape shape: this.collisionShapes) {
+            if (this.collisionShape.intersects(shape.getShape())){
+                System.out.println("Collision");
+            }
+        }
+
         if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
             this.x++;
         }
@@ -49,6 +60,10 @@ public class RocketObject implements Actor {
 
     public float getY() {
         return y;
+    }
+
+    public void addCollisionPartner(Enemy enemy){
+        this.collisionShapes.add(enemy);
     }
 
 }
