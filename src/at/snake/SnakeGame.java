@@ -8,8 +8,10 @@ import java.util.List;
 
 public class SnakeGame extends BasicGame {
     public static final int GRID_SIZE = 40;
+    public static final int CLOCK = 500;
     public List<Actor> actors;
     private Element tail, tip;
+    private int elapsedTime = 0;
 
     public SnakeGame(String title) {
         super(title);
@@ -42,12 +44,53 @@ public class SnakeGame extends BasicGame {
         for (Actor actor : this.actors) {
             actor.update(delta);
         }
+
+        this.elapsedTime += delta;
+        if (this.elapsedTime > CLOCK) {
+            Element tmp = this.tail;
+            this.tail = tmp.getNext();
+            tmp.setNext(null);
+            tip.setNext(tmp);
+
+            //movement
+            int newX = this.tip.getX();
+            int newY = this.tip.getY();
+
+            //logic for directions
+            newY--;
+            if (newY < 0) {
+                newY = 15;
+            }
+            //newX++;
+            tmp.setX(newX);
+            tmp.setY(newY);
+
+            //finalizing
+            this.tip = tmp;
+            this.elapsedTime = 0;
+        }
     }
 
     @Override
     public void render(GameContainer gameContainer, Graphics graphics) throws SlickException {
         for (Actor actor : this.actors) {
             actor.render(gameContainer, graphics);
+        }
+    }
+
+    @Override
+    public void keyPressed(int key, char c, GameContainer gameContainer) {
+        if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
+            System.out.println("Rechts");
+        }
+        if (gameContainer.getInput().isKeyDown(Input.KEY_LEFT)){
+            System.out.println("Links");
+        }
+        if (gameContainer.getInput().isKeyDown(Input.KEY_UP)){
+            System.out.println("Rauf");
+        }
+        if (gameContainer.getInput().isKeyDown(Input.KEY_DOWN)){
+            System.out.println("Runter");
         }
     }
 
