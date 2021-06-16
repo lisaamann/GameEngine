@@ -4,6 +4,6 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 
 public interface Actor {
-    public void update(GameContainer container, Graphics graphics);
-    public void render(int delta);
+    public void render(GameContainer gameContainercontainer, Graphics graphics);
+    public void update(int delta);
 }
