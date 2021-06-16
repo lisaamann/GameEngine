@@ -19,12 +19,12 @@ public class RocketGameMain extends BasicGame {
     public void init(GameContainer gameContainer) throws SlickException {
         this.enemys = new ArrayList<>();
         Random random = new Random();
+        this.rocketObject = new RocketObject();
         for (int i = 0; i < 5; i++) {
             Enemy enemy = new Enemy();
             this.enemys.add(enemy);
             this.rocketObject.addCollisionPartner(enemy);
         }
-        this.rocketObject = new RocketObject();
         this.enemys.add(rocketObject);
 
     }

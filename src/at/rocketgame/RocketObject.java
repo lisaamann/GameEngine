@@ -62,8 +62,8 @@ public class RocketObject implements Actor {
         return y;
     }
 
-    public void addCollisionPartner(Enemy enemy){
-        this.collisionShapes.add(enemy);
+    public void addCollisionPartner(CollisionShape collisionShape1){
+        this.collisionShapes.add(collisionShape1);
     }
 
 }

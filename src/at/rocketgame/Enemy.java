@@ -46,6 +46,6 @@ public class Enemy implements Actor, CollisionShape {
 
     @Override
     public Shape getShape() {
-        return null;
+        return collisionShape;
     }
 }
