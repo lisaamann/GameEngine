@@ -78,7 +78,7 @@ public class SnakeGame extends BasicGame {
         }
     }
 
-    @Override
+
     public void keyPressed(int key, char c, GameContainer gameContainer) {
         if (gameContainer.getInput().isKeyDown(Input.KEY_RIGHT)) {
             System.out.println("Rechts");
